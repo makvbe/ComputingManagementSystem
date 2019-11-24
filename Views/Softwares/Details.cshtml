@@ -30,6 +30,22 @@
         </dd>
     </dl>
 </div>
+
+@*A list of professors that have requested the software*@
+<div>
+    @if (Model.ProfessorSoftware.Count != 0)
+    {
+        <h4>Software requested for @Model.SoftwareName:</h4>
+
+        <ul>
+            @foreach (var item in Model.ProfessorSoftware)
+            {
+                <li>@item.Professor.FirstName @item.Professor.LastName - <a href="/softwares/details/@item.Professor.Id">Details</a></li>
+            }
+        </ul>
+    }
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

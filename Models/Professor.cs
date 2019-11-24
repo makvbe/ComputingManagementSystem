@@ -13,47 +13,5 @@ namespace ComputingManagementSystem.Models
         //public List<Systems> Systems { get; set; }
         public List<ProfessorSoftware> ProfessorSoftware { get; set; }
         public bool ItemCheckedOut { get; set; }
-
-        public Professor()
-        {
-
-        }
-
-        public Professor(string FirstName, string Lastname)
-        {
-
-        }
-
-        public void RequestSoftware(string softwareName)
-        {
-
-        }
-
-        public void RequestSoftware(string softwareName, string linkToSoftware)
-        {
-
-        }
-
-        /*public void RequestSoftware(string softwareName, string versionNum)
-        {
-
-        }*/
-
-        public void RequestSoftware(string softwareName, string linkToSoftware, string versionNum)
-        {
-
-        }
-
-        
-
-        public void AddSystems()
-        {
-
-        }
-
-        /*public void CheckOutItem(Item item)
-        {
-
-        }*/
     }
 }
