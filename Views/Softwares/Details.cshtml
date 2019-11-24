@@ -1,0 +1,36 @@
+﻿@model ComputingManagementSystem.Models.Software
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Software</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VersionNum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VersionNum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkToSoftware)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LinkToSoftware)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

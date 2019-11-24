@@ -1,0 +1,79 @@
+﻿@model ProfessorSoftwareViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Professor.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Professor.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor.ItemCheckedOut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Professor.ItemCheckedOut)
+        </dd>
+    </dl>
+</div>
+
+@*A list of software that the professor has requested*@
+<div>
+    @if (Model.Professor.ProfessorSoftware.Count != 0)
+    {
+        <h4>Software requested for @Model.Professor.FirstName:</h4>
+
+        <ul>
+            @foreach (var item in Model.Professor.ProfessorSoftware)
+            {
+                <li>@item.Software.SoftwareName - <a href="/softwares/details/@item.Software.Id">Details</a> | <a href="/professors/@Model.Professor.Id/SoftwareDelete/@item.Software.Id">Remove Request</a></li>
+            }
+        </ul>
+    }
+</div>
+
+@*A form of software that the professor can request*@
+<div>
+    <form action="/professors/detail/@Model.Professor.Id" method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <label>Example select</label>
+            <select class="form-control" name="sId">
+                @foreach (var item in Model.Software)
+                {
+                    <option value="@item.Id">@item.SoftwareName</option>
+                }
+            </select>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Request Software</button>
+
+    </form>
+
+    <br />
+    <div>
+        Don't see your software on the list? Add it <a href="/softwares/create">here</a>!
+    </div>
+    <br />
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Professor.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
