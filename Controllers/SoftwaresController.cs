@@ -34,7 +34,12 @@ namespace ComputingManagementSystem.Controllers
             }
 
             var software = await _context.Software
+                .Include(p => p.ProfessorSoftware)
+                .ThenInclude(ps => ps.Professor)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            var professor = await _context.Professor.ToListAsync();
+
             if (software == null)
             {
                 return NotFound();

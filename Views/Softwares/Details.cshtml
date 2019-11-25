@@ -40,9 +40,11 @@
         <ul>
             @foreach (var item in Model.ProfessorSoftware)
             {
-                <li>@item.Professor.FirstName @item.Professor.LastName - <a href="/softwares/details/@item.Professor.Id">Details</a></li>
+                <li>@item.Professor.FirstName @item.Professor.LastName - <a href="/professors/details/@item.Professor.Id">Details</a></li>
             }
         </ul>
+
+        <h4>There is a total of @Model.ProfessorSoftware.Count requests for @Model.SoftwareName</h4>
     }
 </div>
 
